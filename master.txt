@@ -1,0 +1,18 @@
+>>> def sol(store,customer):
+...     l=len(customer)
+...     answer=[]
+...     for i in range(l):
+...             if customer[i] in store:
+...                     answer.append('yes')
+...             else:
+...                     answer.append('no')
+...     return answer
+...
+>>> store=[2,3,7,8,9]
+>>> customer=[7,5,9]
+>>> sol(store,customer)
+['yes', 'no', 'yes']
+>>> store=[1,2,3,7,8]
+>>> customer=[1,5,8,4,6]
+>>> sol(store,customer)
+['yes', 'no', 'yes', 'no', 'no']
