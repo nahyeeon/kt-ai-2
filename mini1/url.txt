@@ -1,0 +1,5 @@
+대중교통
+https://bigdata.seoul.go.kr/data/selectSampleData.do?r_id=P213&sample_data_seq=13
+
+따릉이
+https://data.seoul.go.kr/dataList/OA-15182/F/1/datasetView.do
