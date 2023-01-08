@@ -1,0 +1,51 @@
+from sklearn.datasets import load_iris
+
+iris = load_iris()
+
+x = iris.data
+y = iris.target
+
+x.shape, y.shape
+
+iris.target_names
+#array(['setosa', 'versicolor', 'virginica'], dtype='<U10')
+
+y.shape
+#(150,)
+
+# one-hot encoding
+from tensorflow.keras.utils import to_categorical
+
+## 반복 실행 주의!!!
+y = to_categorical(y, 3)
+
+x.shape, y.shape
+#((150, 4), (150, 3))
+
+## 라이브러리 불러오기
+import tensorflow as tf
+from tensorflow import keras
+
+## Sequential API
+# 1. 세션 클리어
+keras.backend.clear_session()
+
+# 2. 모델 발판 선언
+model = keras.models.Sequential()
+
+# 3. 레이어 블록 조립
+model.add( keras.layers.Input(shape=(4,)) )
+model.add( keras.layers.Dense(3, activation='softmax') )
+
+# 4. 컴파일
+model.compile(loss='categorical_crossentropy', metrics=['accuracy'],
+              optimizer='adam')
+## 학습
+
+model.fit(x, y, epochs=10, verbose=1)
+
+## 예측
+
+y_pred = model.predict(x)
+
+y_pred[:5]
